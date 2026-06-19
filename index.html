@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ur-PK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Delivery - Instant City Delivery</title>
+    <!-- Google Fonts: Outfit & Noto Sans Arabic (for Urdu mix) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <i class="fa-solid fa-truck-fast logo-icon"></i>
+                <span class="logo-text">On Delivery</span>
+            </div>
+            <div class="cart-trigger" id="cartTrigger">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+        </div>
+        <!-- Search bar inside header -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search vegetables, chicken, dairy...">
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Navigation Bar -->
+    <nav class="categories-bar">
+        <div class="categories-wrapper" id="categoriesWrapper">
+            <button class="category-btn active" data-category="all">
+                <i class="fa-solid fa-border-all"></i> All Items
+            </button>
+            <button class="category-btn" data-category="vegetables">
+                <i class="fa-solid fa-carrot"></i> Vegetables (Sabzi)
+            </button>
+            <button class="category-btn" data-category="chicken">
+                <i class="fa-solid fa-drumstick-bite"></i> Chicken & Meat
+            </button>
+            <button class="category-btn" data-category="fruits">
+                <i class="fa-solid fa-apple-whole"></i> Fruits (Phal)
+            </button>
+            <button class="category-btn" data-category="dairy">
+                <i class="fa-solid fa-cow"></i> Dairy & Eggs
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="products-section">
+        <div class="section-title">
+            <h2 id="currentCategoryTitle">All Fresh Items</h2>
+            <span class="sub-title">Freshly delivered to your doorstep in 45 mins!</span>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Dynamically populated via app.js -->
+        </div>
+    </main>
+
+    <!-- Cart Drawer (Slides in from the right / bottom on mobile) -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h3><i class="fa-solid fa-basket-shopping"></i> Your Basket</h3>
+                <button class="close-drawer-btn" id="closeDrawer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <!-- Cart Items List -->
+            <div class="cart-items-container" id="cartItemsContainer">
+                <!-- Cart items populated via app.js -->
+                <div class="empty-cart-state">
+                    <i class="fa-solid fa-basket-shopping empty-icon"></i>
+                    <p>Your basket is empty!</p>
+                    <span>Add fresh items from our catalog to get started.</span>
+                </div>
+            </div>
+            
+            <!-- Cart Footer Summary -->
+            <div class="cart-footer" id="cartFooter">
+                <div class="price-row">
+                    <span>Delivery Charges:</span>
+                    <span class="delivery-fee">Rs. 80</span>
+                </div>
+                <div class="price-row total-row">
+                    <span>Total Amount:</span>
+                    <span class="total-price" id="totalPrice">Rs. 80</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fa-solid fa-truck-ramp-box"></i> Place Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Details Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-location-dot"></i> Delivery Details</h3>
+                <button class="close-modal-btn" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="checkoutForm" class="checkout-form">
+                <div class="form-group">
+                    <label for="custName"><i class="fa-solid fa-user"></i> Your Name (Aap ka Naam)</label>
+                    <input type="text" id="custName" placeholder="e.g., Ali Khan" required>
+                </div>
+                <div class="form-group">
+                    <label for="custPhone"><i class="fa-solid fa-phone"></i> Contact Number</label>
+                    <input type="tel" id="custPhone" placeholder="e.g., 03001234567" required>
+                </div>
+                <div class="form-group">
+                    <label for="custAddress"><i class="fa-solid fa-house"></i> Delivery Address (Ghar ka pata)</label>
+                    <textarea id="custAddress" rows="3" placeholder="e.g., Street #2, House #14, Model Town" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="custNotes"><i class="fa-solid fa-comment-dots"></i> Special Instructions (Optional)</label>
+                    <input type="text" id="custNotes" placeholder="e.g., Call before arrival, leave at gate.">
+                </div>
+                <button type="submit" class="submit-order-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Confirm & Open WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Quick Cart Button for Mobile (Shows when items are added and cart is closed) -->
+    <div class="floating-cart" id="floatingCartBtn">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="floating-badge" id="floatingBadge">0</span>
+    </div>
+
+    <!-- Script Imports -->
+    <script src="app.js"></script>
+</body>
+</html>
