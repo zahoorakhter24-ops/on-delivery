@@ -36,7 +36,7 @@ const PRODUCTS = [
         unit: "per kg",
         category: "vegetables",
         badge: "Fresh",
-        image: "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=300&q=80"
+        image: "https://unsplash.com/photos/growth-ripe-tomato-in-greenhouse-bLLcAX3CtOE"
     },
     {
         id: 4,
