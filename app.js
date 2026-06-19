@@ -32,7 +32,7 @@ const PRODUCTS = [
         id: 3,
         nameEn: "Tomato (Red)",
         nameUr: "Tamatar (ٹماٹر)",
-        price: 80,
+        price: 50,
         unit: "per kg",
         category: "vegetables",
         badge: "Fresh",
